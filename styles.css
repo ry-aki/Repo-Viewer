@@ -1,0 +1,153 @@
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+p{
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+#app {
+    margin: auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+#profile {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    background: #ddd;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* #repoList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.repository {
+    flex: 50%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+} */
+
+#search {
+    display: flex; /* Use flexbox to align the input */
+    justify-content: center; /* Center the search bar horizontally */
+    padding: 20px; /* Add some padding around the search bar */
+}
+
+#search input[type="search"] {
+    width: 100%; /* Full width of its parent */
+    max-width: 500px; /* Maximum width of the search input */
+    padding: 10px; /* Padding inside the search input */
+    border: 2px solid #ddd; /* A light border for the input */
+    border-radius: 25px; /* Rounded corners for the input */
+    font-size: 1rem; /* Font size for the text inside the input */
+    color: #333; /* Text color for the input */
+}
+
+#search input[type="search"]:focus {
+    border-color: #224480; /* Changes the border color when the input is focused */
+    box-shadow: 0 0 8px rgba(34, 68, 128, 0.6); /* Adds a subtle glow effect on focus */
+}
+
+#repoList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create two columns with equal width */
+    gap: 30px; 
+}
+
+.repository {
+    border: 1px solid #224480;
+    padding: 10px;
+}
+
+.repository h2{
+    color: #224480;
+}
+
+.repository-topics {
+    display: flex; /* Aligns the topic tags inline */
+    flex-wrap: wrap;
+    gap: 5px; /* Adds a gap between the tags */
+    margin-top: 20px;
+  }
+  
+.repository-topics span {
+    background-color: #224480; /* The blue background color */
+    color: white; /* White text color */
+    padding: 5px 10px; /* Padding inside the tags */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 0.8rem; /* Adjust size as needed */
+    cursor: pointer; 
+  }
+  
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+#pagination button {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#pagination button:hover:not(:disabled) {
+    background-color: #f0f0f0;
+}
+
+#pagination button.disabled,
+#pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#pagination button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Add space between page numbers and control buttons */
+}
