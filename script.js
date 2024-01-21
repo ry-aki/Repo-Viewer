@@ -1,7 +1,7 @@
 const apiRoot = 'https://api.github.com/users/';
 let user = 'ry-aki'; 
 let currentPage = 1;
-const perPage = 10;
+let perPage = 10;
 let searchQuery = ''; 
 
 const repoList = document.getElementById('repoList');
@@ -30,7 +30,12 @@ function hideLoader() {
 function fetchProfile() {
     showLoader();
     fetch(`${apiRoot}${user}`)
-        .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('User not found');   //Invalid User name 
+        }
+        return response.json();
+    })
         .then(data => {
             displayProfile(data);
             fetchRepositories(); 
@@ -38,6 +43,7 @@ function fetchProfile() {
         .catch(error => {
             console.error('Error fetching profile:', error)
             hideLoader();
+            alert(error.message);
         });
 }
 
@@ -87,16 +93,23 @@ function fetchRepositories() {
 
 function displayRepositories(repositories) {
     repoList.innerHTML = ''; 
-    repositories.forEach(repo => {
-        const repoElement = document.createElement('div');
-        repoElement.className = 'repository';
-        repoElement.innerHTML = `
-            <h2>${repo.name}</h2>
-            <p>${repo.description || ' '}</p>
-            <div class="repository-topics">${repo.topics.map(topic => `<span class="tag">${topic}</span>`).join('')}</div>              
-        `;
-        repoList.appendChild(repoElement);
-    });
+    if (repositories.length === 0) {
+        repoList.innerHTML = '<p>No repositories found.</p>';
+        return;
+    }
+    else {
+        repositories.forEach(repo => {
+            const repoElement = document.createElement('div');
+            repoElement.className = 'repository';
+            repoElement.innerHTML = `
+                <h2>${repo.name}</h2>
+                <p>${repo.description || ' '}</p>
+                <div class="repository-topics">${repo.topics.map(topic => `<span class="tag">${topic}</span>`).join('')}</div>              
+            `;
+            repoList.appendChild(repoElement);
+        });
+    }
+    
 }
 
 function updatePagination() {
@@ -160,7 +173,11 @@ function changePage(newPage) {
 
 }
 
-
+function updatePerPage() {
+    perPage = document.getElementById('per-page-select').value;
+    currentPage = 1; 
+    fetchRepositories();
+}
 
 
 

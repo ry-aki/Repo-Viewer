@@ -35,7 +35,19 @@
             </div>
             <div id="pagination-controls">
                 <!-- Newer and Older buttons -->
+                
             </div>
+            <div id="repo-per-page">
+                <label for="per-page-select">Repositories per page:</label>
+                <select id="per-page-select" onchange="updatePerPage()">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            
+            
         </footer>
     </div>
 

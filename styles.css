@@ -186,7 +186,7 @@ footer {
     color: white;
 }
 
-#pagination-controls {
+#pagination-controls, #repo-per-page {
     display: flex;
     justify-content: center;
     margin-top: 10px; 
