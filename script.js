@@ -19,14 +19,26 @@ function updateUser() {
     }
 }
 
+function showLoader() {
+    document.getElementById('loader').style.display = 'block';
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
+}
+
 function fetchProfile() {
+    showLoader();
     fetch(`${apiRoot}${user}`)
         .then(response => response.json())
         .then(data => {
             displayProfile(data);
             fetchRepositories(); 
         })
-        .catch(error => console.error('Error fetching profile:', error));
+        .catch(error => {
+            console.error('Error fetching profile:', error)
+            hideLoader();
+        });
 }
 
 function displayProfile(profileData) {
@@ -58,14 +70,19 @@ function filterRepositories() {
 }
 
 function fetchRepositories() {
+    showLoader();
     fetch(`${apiRoot}${user}/repos?page=${currentPage}&per_page=${perPage}&sort=updated`)
         .then(response => response.json())
         .then(data => {
             displayRepositories(data);
             updatePagination();
+            hideLoader();
             
         })
-        .catch(error => console.error('Error fetching repositories:', error));
+        .catch(error => {
+            console.error('Error fetching repositories:', error)
+            hideLoader();
+        });
 }
 
 function displayRepositories(repositories) {
