@@ -1,11 +1,8 @@
-
-
 body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
-
 
 p{
     margin-top: 0px;
@@ -17,6 +14,8 @@ p{
     width: 80%;
     max-width: 1200px;
 }
+
+/* Profile */
 
 #profile {
     display: flex;
@@ -40,50 +39,40 @@ p{
     flex-direction: column;
 }
 
-/* #repoList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-between;
-}
-
-.repository {
-    flex: 50%;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-} */
+/* Search bar */
 
 #search {
-    display: flex; /* Use flexbox to align the input */
-    justify-content: center; /* Center the search bar horizontally */
-    padding: 20px; /* Add some padding around the search bar */
+    display: flex; 
+    justify-content: center; 
+    padding: 20px; 
 }
 
 #search input[type="search"] {
-    width: 100%; /* Full width of its parent */
-    max-width: 500px; /* Maximum width of the search input */
-    padding: 10px; /* Padding inside the search input */
-    border: 2px solid #ddd; /* A light border for the input */
-    border-radius: 25px; /* Rounded corners for the input */
-    font-size: 1rem; /* Font size for the text inside the input */
-    color: #333; /* Text color for the input */
+    width: 100%; 
+    max-width: 500px; 
+    padding: 10px;
+    border: 2px solid #ddd; 
+    border-radius: 25px; 
+    font-size: 1rem; 
+    color: #333; 
 }
 
 #search input[type="search"]:focus {
-    border-color: #224480; /* Changes the border color when the input is focused */
-    box-shadow: 0 0 8px rgba(34, 68, 128, 0.6); /* Adds a subtle glow effect on focus */
+    border-color: #224480; 
+    box-shadow: 0 0 8px rgba(34, 68, 128, 0.6); 
 }
+
+/* Repositiry List */
 
 #repoList {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Create two columns with equal width */
-    gap: 30px; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
 }
 
 .repository {
     border: 1px solid #224480;
-    padding: 10px;
+    padding: 10px;;
 }
 
 .repository h2{
@@ -91,24 +80,26 @@ p{
 }
 
 .repository-topics {
-    display: flex; /* Aligns the topic tags inline */
+    display: flex;
     flex-wrap: wrap;
-    gap: 5px; /* Adds a gap between the tags */
+    gap: 5px; 
     margin-top: 20px;
-  }
-  
+}
+ 
 .repository-topics span {
-    background-color: #224480; /* The blue background color */
-    color: white; /* White text color */
-    padding: 5px 10px; /* Padding inside the tags */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 0.8rem; /* Adjust size as needed */
+    background-color: #224480; 
+    color: white; 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    font-size: 0.8rem; 
     cursor: pointer; 
-  }
+}
   
+/* Pagination */
 
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -142,12 +133,41 @@ footer {
 }
 
 #pagination button.active {
-    background-color: #007bff;
+    background-color: #224480;
     color: white;
 }
 
-.pagination-controls {
+#pagination-controls {
     display: flex;
     justify-content: center;
-    margin-top: 10px; /* Add space between page numbers and control buttons */
+    margin-top: 10px; 
+}
+
+#pagination-controls button{
+    
+    margin: auto;
+    padding: 0px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: rgb(249, 251, 250);
+    border: 1px solid #224480;
+    box-shadow: rgb(6 22 33 / 30%) 0px 1px 2px;
+    color: rgb(61, 79, 88);
+    font-size: 14px;
+    font-weight: 400;
+    height: 36px;
+    transition: all 150ms ease-in-out 0s;
+
+}
+
+#pagination-controls button:hover{
+    color: white;
+    background-color: #224480;
+    border: 1px solid rgb(93, 108, 116);
+    box-shadow: rgb(0 0 0 / 30%) 0px 4px 4px, rgb(231 238 236) 0px 0px 0px 3px;
+}
+
+#pagination-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
