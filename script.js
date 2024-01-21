@@ -1,6 +1,5 @@
-
 const apiRoot = 'https://api.github.com/users/';
-const user = 'ry-aki'; //++ get username from user
+let user = 'ry-aki'; 
 let currentPage = 1;
 const perPage = 10;
 let searchQuery = ''; 
@@ -8,6 +7,17 @@ let searchQuery = '';
 const repoList = document.getElementById('repoList');
 const pagination = document.getElementById('pagination');
 
+function updateUser() {
+    const inputUsername = document.getElementById('input-username').value.trim();
+    if (inputUsername) {
+        user = inputUsername;
+        currentPage = 1; 
+        fetchProfile();
+        fetchRepositories();
+    } else {
+        alert("Please enter a GitHub username.");
+    }
+}
 
 function fetchProfile() {
     fetch(`${apiRoot}${user}`)
@@ -39,7 +49,7 @@ function displayProfile(profileData) {
 }
 
 function filterRepositories() {
-    const searchValue = document.getElementById('searchInput').value.toLowerCase();
+    const searchValue = document.getElementById('search-input').value.toLowerCase();
     const repos = document.querySelectorAll('.repository');
     repos.forEach(repo => {
         const title = repo.querySelector('h2').textContent.toLowerCase();

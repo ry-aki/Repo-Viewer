@@ -10,12 +10,17 @@
 <body>
     <div id="app">
 
+        <div id="username">
+            <input type="text" id="input-username" placeholder="Enter GitHub username" />
+            <button onclick="updateUser()">Load Profile</button>
+        </div>
+
         <div id="profile">
             <!--Profile detailss-->
         </div>
 
         <div id="search">
-            <input type="search" id="searchInput" placeholder="Search Repositories..." oninput="filterRepositories()">
+            <input type="search" id="search-input" placeholder="Search Repositories..." oninput="filterRepositories()">
         </div>
 
         <div id="repoList">
